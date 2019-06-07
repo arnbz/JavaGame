@@ -61,13 +61,13 @@ public class stage2 {
 			
 			if(e.getCode()== KeyCode.UP){
 				if(Stage1.angle > -90 )
-					Stage1.angle -= 15;
+					Stage1.angle -= 5;
 				c.ivGun.setRotate(Stage1.angle);
 			}	
 				
 			else if(e.getCode()== KeyCode.DOWN){
 				if(Stage1.angle < 0 )
-					Stage1.angle += 15;
+					Stage1.angle += 5;
 				c.ivGun.setRotate(Stage1.angle);
 			}
 			
