@@ -1,6 +1,8 @@
 package game;
 
 import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
@@ -8,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.geometry.*;
 import javafx.application.Platform;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
 
 public class Tank implements Runnable {
@@ -44,7 +47,6 @@ public class Tank implements Runnable {
 
             Thread t = new Thread(this);
             t.start();
-
         });
 
         tankGroup.getChildren().addAll(beginBtn, tank1, tank2, tank3, tank4, tank5, scoreLabel);
@@ -79,76 +81,73 @@ public class Tank implements Runnable {
         while (true) {
 
             if (score == 200 || tank1.getX() == 100 || tank2.getX() == 100 || tank3.getX() == 100 || tank4.getX() == 100 || tank5.getX() == 100) {
-                insertInfo();
+                //insertInfo();
                 break;
             }
 
             double cx = tank1.getX();
-            tank1.setX(cx - 5);
+
+            Platform.runLater(()->tank1.setX(cx - 5));
 
             if (tank1.intersects(CannonBall.cBall.getBoundsInLocal())) {
                 System.out.println("touched1");
-                tank1.setX(TankPosition.getRandomPosition());
 
-                //todo: why setting cannon ball center to 2000 ?
-                CannonBall.cBall.setCenterX(2000);
                 score += 10;
-
-                //todo: what does Platform.runLater() do ?
                 Platform.runLater(() -> {
+                    tank1.setX(TankPosition.getRandomPosition());
                     scoreLabel.setText("Score: " + score);
                 });
             }
 
             double cx2 = tank2.getX();
-            tank2.setX(cx2 - 5);
+            Platform.runLater(() ->tank2.setX(cx2 - 5));
 
             if (tank2.intersects(CannonBall.cBall.getBoundsInLocal())) {
                 System.out.println("touched2");
-                tank2.setX(TankPosition.getRandomPosition());
-                CannonBall.cBall.setCenterX(2000);
+
                 score += 10;
                 Platform.runLater(() -> {
+                    tank2.setX(TankPosition.getRandomPosition());
                     scoreLabel.setText("Score: " + score);
                 });
             }
 
             double cx3 = tank3.getX();
-            tank3.setX(cx3 - 5);
+            Platform.runLater(() -> tank3.setX(cx3 - 5));
 
             if (tank3.intersects(CannonBall.cBall.getBoundsInLocal())) {
                 System.out.println("touched3");
-                tank3.setX(TankPosition.getRandomPosition());
-                CannonBall.cBall.setCenterX(2000);
+
                 score += 10;
                 Platform.runLater(() -> {
+                    tank3.setX(TankPosition.getRandomPosition());
                     scoreLabel.setText("Score: " + score);
                 });
             }
 
             double cx4 = tank4.getX();
-            tank4.setX(cx4 - 5);
+            Platform.runLater(() ->tank4.setX(cx4 - 5));
 
             if (tank4.intersects(CannonBall.cBall.getBoundsInLocal())) {
                 System.out.println("touched4");
-                tank4.setX(TankPosition.getRandomPosition());
-                CannonBall.cBall.setCenterX(2000);
+
                 score += 10;
                 Platform.runLater(() -> {
+                    tank4.setX(TankPosition.getRandomPosition());
                     scoreLabel.setText("Score: " + score);
                 });
 
             }
 
             double cx5 = tank5.getX();
-            tank5.setX(cx4 - 5);
+            Platform.runLater(() ->tank5.setX(cx4 - 5));
 
             if (tank5.intersects(CannonBall.cBall.getBoundsInLocal())) {
                 System.out.println("touched5");
-                tank5.setX(TankPosition.getRandomPosition());
-                CannonBall.cBall.setCenterX(2000);
+
                 score += 10;
                 Platform.runLater(() -> {
+                    tank5.setX(TankPosition.getRandomPosition());
                     scoreLabel.setText("Score: " + score);
                 });
             }

@@ -1,5 +1,6 @@
 package game;
 
+import javafx.application.Platform;
 import javafx.scene.Group;
 import javafx.scene.shape.*;
 
@@ -35,8 +36,8 @@ public class CannonBall extends Group implements Runnable{
 			double xCoordinate = xListIte.next();
 			double yCoordinate = centrY - yListIte.next();
 			
-			cBall.setCenterX(xCoordinate);
-			cBall.setCenterY(yCoordinate);
+			Platform.runLater(() -> cBall.setCenterX(xCoordinate));
+			Platform.runLater(() -> cBall.setCenterY(yCoordinate));
 			
 			try{Thread.sleep(10);}
 			catch(Exception ex){}
@@ -46,6 +47,9 @@ public class CannonBall extends Group implements Runnable{
 		//s.shootBtn.setVisible(true);
 		Projectile.xList.clear();
 		Projectile.yList.clear();
+
+		Platform.runLater(()->cBall.setCenterX(80));
+		Platform.runLater(()->cBall.setCenterY(417));
 		
 	}
 	

@@ -19,7 +19,7 @@ public class stage3 {
 	static Button shootBtn;
 	public static Scene stage_3(){
 		
-		CannonBall cB = new CannonBall(80,457);
+		CannonBall cB = new CannonBall(80,417);
 		Group root = new Group();
 		HBox layout1 = new HBox();
 		Scene stage3Scene = new Scene(root,1000,600);
@@ -54,7 +54,7 @@ public class stage3 {
 
 		
 		
-		root.getChildren().addAll(iv,sp.shipCollection(), c.cannonImage(50, 455, 45, 437), layout1 ,cB);
+		root.getChildren().addAll(iv,sp.shipCollection(), c.cannonImage(50, 415, 45, 397), layout1 ,cB);
 		
 		stage3Scene.addEventFilter(KeyEvent.KEY_PRESSED,	e->{
 			

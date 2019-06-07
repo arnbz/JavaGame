@@ -25,7 +25,6 @@ public class StartScreen extends Application {
         launch(args);
     }
 
-
     @Override
     public void start(Stage primaryStage) {
         mainWindow = primaryStage;

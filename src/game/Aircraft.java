@@ -72,66 +72,71 @@ public class Aircraft implements Runnable {
         while (score != 400 && aircraft1.getX() != 100 && aircraft2.getX() != 100 && aircraft3.getX() != 100 && aircraft4.getX() != 100 && aircraft5.getX() != 100) {
 
             double cx = aircraft1.getX();
-            aircraft1.setX(cx - 5);
+            Platform.runLater(()->aircraft1.setX(cx - 5));
 
             if (aircraft1.intersects(CannonBall.cBall.getBoundsInLocal())) {
                 System.out.println("touched1");
-                aircraft1.setX(TankPosition.getRandomPosition());
-                CannonBall.cBall.setCenterX(2000);
+
                 score += 10;
                 Platform.runLater(() -> {
+                    aircraft1.setX(TankPosition.getRandomPosition());
+                    CannonBall.cBall.setCenterX(2000);
                     scoreLabel.setText("Score: " + String.valueOf(score));
                 });
             }
 
             double cx2 = aircraft2.getX();
-            aircraft2.setX(cx2 - 5);
+            Platform.runLater(()->aircraft2.setX(cx2 - 5));
 
             if (aircraft2.intersects(CannonBall.cBall.getBoundsInLocal())) {
                 System.out.println("touched1");
-                aircraft2.setX(TankPosition.getRandomPosition());
-                CannonBall.cBall.setCenterX(2000);
+
                 score += 10;
                 Platform.runLater(() -> {
+                    aircraft2.setX(TankPosition.getRandomPosition());
+                    CannonBall.cBall.setCenterX(2000);
                     scoreLabel.setText("Score: " + String.valueOf(score));
                 });
             }
 
             double cx3 = aircraft3.getX();
-            aircraft3.setX(cx3 - 5);
+            Platform.runLater(()->aircraft3.setX(cx3 - 5));
 
             if (aircraft3.intersects(CannonBall.cBall.getBoundsInLocal())) {
                 System.out.println("touched1");
-                aircraft3.setX(TankPosition.getRandomPosition());
-                CannonBall.cBall.setCenterX(2000);
+
                 score += 10;
                 Platform.runLater(() -> {
+                    aircraft3.setX(TankPosition.getRandomPosition());
+                    CannonBall.cBall.setCenterX(2000);
                     scoreLabel.setText("Score: " + String.valueOf(score));
                 });
             }
 
             double cx4 = aircraft4.getX();
-            aircraft4.setX(cx4 - 5);
+            Platform.runLater(()->aircraft4.setX(cx4 - 5));
 
             if (aircraft4.intersects(CannonBall.cBall.getBoundsInLocal())) {
                 System.out.println("touched1");
-                aircraft4.setX(TankPosition.getRandomPosition());
-                CannonBall.cBall.setCenterX(2000);
+
                 score += 10;
                 Platform.runLater(() -> {
+                    aircraft4.setX(TankPosition.getRandomPosition());
+                    CannonBall.cBall.setCenterX(2000);
                     scoreLabel.setText("Score: " + String.valueOf(score));
                 });
             }
 
             double cx5 = aircraft5.getX();
-            aircraft5.setX(cx5 - 5);
+            Platform.runLater(()->aircraft5.setX(cx5 - 5));
 
             if (aircraft5.intersects(CannonBall.cBall.getBoundsInLocal())) {
                 System.out.println("touched1");
-                aircraft5.setX(TankPosition.getRandomPosition());
-                CannonBall.cBall.setCenterX(2000);
+
                 score += 10;
                 Platform.runLater(() -> {
+                    aircraft5.setX(TankPosition.getRandomPosition());
+                    CannonBall.cBall.setCenterX(2000);
                     scoreLabel.setText("Score: " + String.valueOf(score));
                 });
             }

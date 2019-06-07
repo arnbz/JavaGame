@@ -71,67 +71,67 @@ public class Ship implements Runnable {
                 && ship3.getX() != 100 && ship4.getX() != 100 && ship5.getX() != 100) {
 
             double cx = ship1.getX();
-            ship1.setX(cx - 5);
+            Platform.runLater(()->ship1.setX(cx - 5));
 
             if (ship1.intersects(CannonBall.cBall.getBoundsInLocal())) {
                 System.out.println("touched1");
-                ship1.setX(TankPosition.getRandomPosition());
-                CannonBall.cBall.setCenterX(2000);
+
                 score += 10;
                 Platform.runLater(() -> {
+                    ship1.setX(TankPosition.getRandomPosition());
                     scoreLabel.setText("Score: " + String.valueOf(score));
                 });
             }
 
             double cx2 = ship2.getX();
-            ship2.setX(cx2 - 5);
+            Platform.runLater(()->ship2.setX(cx2 - 5));
 
             if (ship2.intersects(CannonBall.cBall.getBoundsInLocal())) {
                 System.out.println("touched1");
-                ship2.setX(TankPosition.getRandomPosition());
-                CannonBall.cBall.setCenterX(2000);
+
                 score += 10;
                 Platform.runLater(() -> {
+                    ship2.setX(TankPosition.getRandomPosition());
                     scoreLabel.setText("Score: " + String.valueOf(score));
                 });
             }
 
             double cx3 = ship3.getX();
-            ship3.setX(cx3 - 5);
+            Platform.runLater(()->ship3.setX(cx3 - 5));
 
             if (ship3.intersects(CannonBall.cBall.getBoundsInLocal())) {
                 System.out.println("touched1");
-                ship3.setX(TankPosition.getRandomPosition());
-                CannonBall.cBall.setCenterX(2000);
+
                 score += 10;
                 Platform.runLater(() -> {
+                    ship3.setX(TankPosition.getRandomPosition());
                     scoreLabel.setText("Score: " + String.valueOf(score));
                 });
             }
 
 
             double c4 = ship4.getX();
-            ship4.setX(cx3 - 5);
+            Platform.runLater(()->ship4.setX(cx3 - 5));
 
             if (ship4.intersects(CannonBall.cBall.getBoundsInLocal())) {
                 System.out.println("touched1");
-                ship4.setX(TankPosition.getRandomPosition());
-                CannonBall.cBall.setCenterX(2000);
+
                 score += 10;
                 Platform.runLater(() -> {
+                    ship4.setX(TankPosition.getRandomPosition());
                     scoreLabel.setText("Score: " + String.valueOf(score));
                 });
             }
 
             double cx5 = ship5.getX();
-            ship5.setX(cx3 - 5);
+            Platform.runLater(()->ship5.setX(cx3 - 5));
 
             if (ship5.intersects(CannonBall.cBall.getBoundsInLocal())) {
                 System.out.println("touched1");
-                ship5.setX(TankPosition.getRandomPosition());
-                CannonBall.cBall.setCenterX(2000);
+
                 score += 10;
                 Platform.runLater(() -> {
+                    ship5.setX(TankPosition.getRandomPosition());
                     scoreLabel.setText("Score: " + String.valueOf(score));
                 });
             }
