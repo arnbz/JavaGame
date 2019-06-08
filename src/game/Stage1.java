@@ -29,7 +29,7 @@ public class Stage1 {
     static int v = 0;
     static Button shootBtn;
 
-    public static Scene stage_1() {
+    public static Scene stage_1(Stage primaryStage) {
 
         CannonBall cannonBall = new CannonBall(80, 417);
         Group root = new Group();
@@ -42,7 +42,7 @@ public class Stage1 {
         imageView.setFitWidth(1000);
         imageView.setFitHeight(600);
 
-        Tank tank = new Tank();
+        Tank tank = new Tank(primaryStage);
         Cannon cannon = new Cannon();
 
         shootBtn = new Button("Shoot!!");

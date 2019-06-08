@@ -3,6 +3,9 @@ package game;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
@@ -10,10 +13,15 @@ import javafx.scene.control.Button;
 import javafx.geometry.*;
 import javafx.application.Platform;
 import javafx.scene.control.Label;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+import sun.awt.windows.ThemeReader;
 
 
 public class Tank implements Runnable {
+
+    private Stage primaryWindow;
 
     Group tankGroup = new Group();
 
@@ -26,6 +34,9 @@ public class Tank implements Runnable {
     Rectangle tank4 = new Rectangle(2620, 405, 100, 50);
     Rectangle tank5 = new Rectangle(2620, 405, 100, 50);
 
+    public Tank(Stage primaryWindow) {
+        this.primaryWindow = primaryWindow;
+    }
 
     public void insertInfo() {
         Database db = new Database();
@@ -80,14 +91,62 @@ public class Tank implements Runnable {
 
         while (true) {
 
-            if (score == 200 || tank1.getX() == 100 || tank2.getX() == 100 || tank3.getX() == 100 || tank4.getX() == 100 || tank5.getX() == 100) {
-                //insertInfo();
+            if (score >= 200) {
+                insertInfo();
+
+                //show game won window
+
+                Platform.runLater(()->{
+                    Label winLabel = new Label("You won!");
+                    winLabel.setTextFill(Paint.valueOf("DARKGREEN"));
+                    winLabel.setFont(Font.font(null, FontWeight.BOLD, 26));
+
+                    HBox hBox = new HBox();
+                    hBox.getChildren().add(winLabel);
+                    hBox.setAlignment(Pos.CENTER);
+
+                    VBox vBox = new VBox();
+                    vBox.getChildren().add(hBox);
+                    vBox.setAlignment(Pos.CENTER);
+
+                    Scene gameWonScene = new Scene(vBox, 1000, 600);
+                    primaryWindow.setScene(gameWonScene);
+
+                    primaryWindow.show();
+                });
+
+                break;
+
+            } else if (tank1.getX() == 100 || tank2.getX() == 100 || tank3.getX() == 100 || tank4.getX() == 100 || tank5.getX() == 100) {
+                insertInfo();
+
+                //show game lost window
+
+                Platform.runLater(()->{
+                    Label lostLabel = new Label("You lost!");
+                    lostLabel.setTextFill(Paint.valueOf("DARKGREEN"));
+                    lostLabel.setFont(Font.font(null, FontWeight.BOLD, 26));
+
+                    HBox hBox = new HBox();
+                    hBox.getChildren().add(lostLabel);
+                    hBox.setAlignment(Pos.CENTER);
+
+                    VBox vBox = new VBox();
+                    vBox.getChildren().add(hBox);
+                    vBox.setAlignment(Pos.CENTER);
+
+                    Scene gameLostScene = new Scene(vBox, 1000, 600);
+                    primaryWindow.setScene(gameLostScene);
+
+                    primaryWindow.show();
+                });
+
                 break;
             }
 
             double cx = tank1.getX();
 
-            Platform.runLater(()->tank1.setX(cx - 5));
+            Platform.runLater(() -> tank1.setX(cx - 5));
 
             if (tank1.intersects(CannonBall.cBall.getBoundsInLocal())) {
                 System.out.println("touched1");
@@ -100,7 +159,7 @@ public class Tank implements Runnable {
             }
 
             double cx2 = tank2.getX();
-            Platform.runLater(() ->tank2.setX(cx2 - 5));
+            Platform.runLater(() -> tank2.setX(cx2 - 5));
 
             if (tank2.intersects(CannonBall.cBall.getBoundsInLocal())) {
                 System.out.println("touched2");
@@ -126,7 +185,7 @@ public class Tank implements Runnable {
             }
 
             double cx4 = tank4.getX();
-            Platform.runLater(() ->tank4.setX(cx4 - 5));
+            Platform.runLater(() -> tank4.setX(cx4 - 5));
 
             if (tank4.intersects(CannonBall.cBall.getBoundsInLocal())) {
                 System.out.println("touched4");
@@ -140,7 +199,7 @@ public class Tank implements Runnable {
             }
 
             double cx5 = tank5.getX();
-            Platform.runLater(() ->tank5.setX(cx4 - 5));
+            Platform.runLater(() -> tank5.setX(cx4 - 5));
 
             if (tank5.intersects(CannonBall.cBall.getBoundsInLocal())) {
                 System.out.println("touched5");

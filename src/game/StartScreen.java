@@ -37,7 +37,7 @@ public class StartScreen extends Application {
         startGameBtn.setFont(Font.font(null, FontWeight.BOLD, 26));
         startGameBtn.setOnAction(e -> {
             login();
-            mainWindow.setScene(Stage1.stage_1());
+            mainWindow.setScene(Stage1.stage_1(mainWindow));
         });
 
         //select stage button
@@ -136,7 +136,7 @@ public class StartScreen extends Application {
         mainWindow.setScene(selectStageScene);
 
         s.backBtn.setOnAction(e -> mainWindow.setScene(selectScene));
-        s.level1Btn.setOnAction(e -> mainWindow.setScene(Stage1.stage_1()));
+        s.level1Btn.setOnAction(e -> mainWindow.setScene(Stage1.stage_1(mainWindow)));
         s.level2Btn.setOnAction(e -> mainWindow.setScene(stage2.stage_2()));
         s.level3Btn.setOnAction(e -> mainWindow.setScene(stage3.stage_3()));
     }

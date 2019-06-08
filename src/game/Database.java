@@ -15,8 +15,7 @@ public class Database {
 
     public Database() {
         try {
-            Class.forName("oracle.jdbc.driver.OracleDriver");
-            con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "missionborder", "tiger");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/game", "arnab", "Apple_123@");
             stmt = con.createStatement();
 
             //	String s = "INSERT INTO SCORE VALUES('aaa','12',120)";
@@ -61,7 +60,8 @@ public class Database {
                 highScores.add(new ScoreList(rs.getString(1), rs.getString(2), rs.getInt(3)));
             }
 
-        } catch (Exception r) {}
+        } catch (Exception r) {
+        }
 
         return highScores;
 
