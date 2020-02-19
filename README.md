@@ -2,6 +2,8 @@
 
 Simple game created by using Java and JavaFX
 
+## Video link
+https://drive.google.com/open?id=1WvAkGMWZLmJtk257XRVHcvDNXHMTlNH3
 
 ## Screenshots
 
